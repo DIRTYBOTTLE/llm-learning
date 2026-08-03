@@ -118,7 +118,7 @@ def main():
     print("已保存预测结果到 prediction_results.png")
 
     # 统计
-    correct = (predictions == test_labels[:25].to(device)).sum().item()
+    correct = (predictions[:25] == test_labels[:25].to(device)).sum().item()
     print(f"\n前 25 张准确率: {correct}/25 ({100.*correct/25:.1f}%)")
 
 
