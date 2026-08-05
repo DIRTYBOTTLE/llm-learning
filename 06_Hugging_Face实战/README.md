@@ -1,70 +1,100 @@
 # 第6章 Hugging Face 实战
 
-> Hugging Face 是 AI 的"应用商店"。这章教你开箱即用。
+> 动手使用 Hugging Face，让大模型为你工作！
 
 ## 学习目标
 
 学完这章，你能：
-- 熟练使用 Transformers 库
-- 掌握 Datasets 库的数据处理
-- 使用 Trainer API 训练模型
-- 完成一个完整的微调项目
+- 了解 Hugging Face 是什么
+- 使用 Transformers 库加载预训练模型
+- 使用 Pipeline 快速完成各种任务
+- 微调自己的模型
+- 了解模型的保存和加载
+
+## 前置知识（你已经学过）
+
+- **第4章**：语言模型、GPT 的训练和生成
+- **第5章**：预训练与微调
 
 ## 章节内容
 
-### 6.1 Transformers 库
+### 6.1 Hugging Face 简介
 
-Pipeline API：
-```python
-from transformers import pipeline
+了解 Hugging Face 生态系统：
+- Hugging Face 是什么
+- Transformers 库
+- Datasets 库
+- Hub（模型仓库）
 
-classifier = pipeline("sentiment-analysis")
-result = classifier("I love this movie!")
+**对应文件**：`01_Hugging_Face简介.md`
+
+### 6.2 快速上手：Pipeline
+
+用一行代码完成各种任务：
+- 文本生成
+- 情感分析
+- 问答
+- 翻译
+
+**对应文件**：`02_快速上手_Pipeline.md`
+
+### 6.3 加载预训练模型
+
+手动加载和使用模型：
+- 加载模型和分词器
+- 前向传播
+- 生成文本
+
+**对应文件**：`03_加载预训练模型.md`
+
+### 6.4 微调实战
+
+动手微调一个模型：
+- 准备数据
+- 配置训练参数
+- 开始训练
+- 测试效果
+
+**对应文件**：`04_微调实战.md`
+
+### 6.5 模型保存与加载
+
+保存和分享你的模型：
+- 保存模型
+- 加载模型
+- 上传到 Hub
+
+**对应文件**：`05_模型保存与加载.md`
+
+## 知识脉络
+
+```
+第6章：Hugging Face 实战
+  ├── 6.1 Hugging Face 简介（了解生态）
+  ├── 6.2 Pipeline（快速上手）
+  ├── 6.3 加载模型（深入使用）
+  ├── 6.4 微调实战（动手训练）
+  └── 6.5 保存加载（分享模型）
 ```
 
-### 6.2 Datasets 库
+## 学习建议
 
-数据加载和预处理：
-```python
-from datasets import load_dataset
+1. **动手实践**：每节都要运行代码
+2. **多试不同模型**：尝试不同的预训练模型
+3. **修改参数**：看看不同参数有什么效果
+4. **做练习题**：巩固所学知识
 
-dataset = load_dataset("imdb")
-```
+## 为下一章做准备
 
-### 6.3 Trainer API
+学完这章后，你将能够：
+- 使用 Hugging Face 的各种工具
+- 加载和使用预训练模型
+- 微调自己的模型
 
-训练参数配置：
-```python
-from transformers import Trainer, TrainingArguments
-
-training_args = TrainingArguments(
-    output_dir="./results",
-    num_train_epochs=3,
-    per_device_train_batch_size=16,
-)
-trainer = Trainer(model=model, args=training_args, train_dataset=train_dataset)
-trainer.train()
-```
-
-### 6.4 完整微调项目
-
-实战：情感分析
-- 数据准备
-- 模型选择
-- 训练配置
-- 评估和部署
-
-## 前置知识
-
-- 第5章：预训练与微调
-- Python 基础
+下一章将学习**模型优化与部署**！
 
 ## 预计学习时间
 
 - 理论学习：2-3 小时
-- 代码实践：3-4 小时
+- 代码实践：4-5 小时
 - 练习巩固：2 小时
-
----
-
-*待完善*
